@@ -8,7 +8,6 @@
 
 }
 
-
 h1, li {
     font-family: "Exo 2", sans-serif;
     font-optical-sizing: auto;
@@ -153,6 +152,14 @@ div li:nth-child(7) {
         text-align: center;
         display: flex;
         justify-content: center;
+    }
+    .planeterVal {
+        width: 40%;
+    }
+    #planets {
+
+        justify-content: center;
+        padding: 0%;
     }
 
 } 

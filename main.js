@@ -11,9 +11,48 @@ const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
 camera.position.z = 5;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(width, height);
+if (width > 680) {
+  renderer.setSize(width, height);
+} else {
+  renderer.setSize(width*0.8, height*0.8 );
+}
 
-document.body.appendChild(renderer.domElement);
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  const width = window.innerWidth;
+const height = window.innerHeight;
+if (width > 680) {
+  renderer.setSize(width, height );
+} else {
+  renderer.setSize(width*0.8, height*0.8 );
+}
+console.log("1")
+
+})
+
+document.getElementById("planetView").appendChild(renderer.domElement)
+
+
+window.addEventListener("scroll", () => {
+  console.log(window.scrollY)
+  if (window.innerWidth > 870) {
+
+    if (window.innerHeight+150 < window.scrollY) {
+      document.querySelector("header").style.color = "white"
+    } else {
+      document.querySelector("header").style.color = "black"
+    }
+  } else if (window.innerWidth > 500) {
+    if (window.innerHeight+920 < window.scrollY) {
+      document.querySelector("header").style.color = "white"
+    } else {
+      document.querySelector("header").style.color = "black"
+    } 
+  }else {
+    document.querySelector("header").style.color = "black"
+  }
+})
 
 THREE.ColorManagement.enabled = true;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -75,9 +114,5 @@ function animate() {
 
 animate();
 
-function handleWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-}
-window.addEventListener("resize", handleWindowResize, false);
+
+
