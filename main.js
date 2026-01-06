@@ -12,7 +12,7 @@ camera.position.z = 5;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 if (width > 680) {
-  renderer.setSize(width, height);
+  renderer.setSize(width*0.95, height);
 } else {
   renderer.setSize(width*0.8, height*0.8 );
 }
@@ -23,7 +23,7 @@ window.addEventListener("resize", () => {
   const width = window.innerWidth;
 const height = window.innerHeight;
 if (width > 680) {
-  renderer.setSize(width, height );
+  renderer.setSize(width*0.95, height );
 } else {
   renderer.setSize(width*0.8, height*0.8 );
 }
