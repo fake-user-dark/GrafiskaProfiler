@@ -36,14 +36,34 @@ document.getElementById("planetView").appendChild(renderer.domElement)
 
 window.addEventListener("scroll", () => {
   console.log(window.scrollY)
-  if (window.innerWidth > 870) {
+  if (window.innerHeight > 80) {
 
-    if (window.innerHeight+150 < window.scrollY) {
-      document.querySelector("header").style.color = "white"
-    } else {
-      document.querySelector("header").style.color = "black"
-    }
-  } else if (window.innerWidth > 500) {
+    const windowPlanet = document.getElementById("planetView")
+      const observer = new IntersectionObserver((entries) => {
+
+          console.log(entries[0])
+          const intersecting = entries[0].isIntersecting;
+          if (intersecting) {
+
+            document.querySelector("header").style.color = "white"
+          } else {
+            document.querySelector("header").style.color = "black"
+          }
+          
+        },
+        {
+          root: null, // viewport
+          threshold: 0,
+          rootMargin: "-5% 0px -105% 0px"
+        }
+      )
+      observer.observe(windowPlanet)
+
+
+
+
+
+  } else if (window.innerWidth > 500  || window.innerHeight > 1000) {
     if (window.innerHeight+920 < window.scrollY) {
       document.querySelector("header").style.color = "white"
     } else {
