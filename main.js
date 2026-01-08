@@ -46,8 +46,13 @@ window.addEventListener("scroll", () => {
           if (intersecting) {
 
             document.querySelector("header").style.color = "white"
+            document.querySelector("#logo").setAttribute("src", "./src/Namnlöst-1.png")
+            document.querySelector("#logo").style.height = "150px"
           } else {
             document.querySelector("header").style.color = "black"
+            document.querySelector("#logo").setAttribute("src", "./src/logo (1).png")
+            document.querySelector("#logo").style.height = "80px"
+
           }
           
         },
