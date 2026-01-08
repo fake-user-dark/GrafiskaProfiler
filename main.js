@@ -11,8 +11,9 @@ const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
 camera.position.z = 5;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
+console.log(renderer  )
 if (width > 680) {
-  renderer.setSize(width*0.95, height);
+  renderer.setSize(width*0.97, height);
 } else {
   renderer.setSize(width*0.8, height*0.8 );
 }
@@ -87,7 +88,20 @@ const earthGroup = new THREE.Group();
 earthGroup.rotation.z = (-23.4 * Math.PI) / 180;
 scene.add(earthGroup);
 
-new OrbitControls(camera, renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableZoom = false;
+controls.zoomSpeed = 1.2;
+
+// Override zoom to only affect the earthGroup
+controls.addEventListener("change", () => {
+  // Calculate zoom factor from camera distance
+  const zoomFactor = camera.position.z; 
+  // Keep stars fixed at origin
+  stars.position.set(0, 0, 0);
+  // Scale earthGroup based on zoom
+
+});
+
 
 const loader = new THREE.TextureLoader();
 const geometry = new THREE.IcosahedronGeometry(1, 14);

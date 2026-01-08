@@ -59,7 +59,7 @@ div li::before {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: 500ms;
+    transition: 200ms;
     width: 150px;
 
 }
@@ -83,6 +83,7 @@ div li::before {
 
     scale: 1.1;
     background-color: #1b6972;
+    color: white
 }
 
 .planeterVal img {
@@ -164,3 +165,7 @@ div li:nth-child(7) {
 
 } 
 
+.planeterVal img {
+    height: 100%;
+    scale: 0.8;
+}
