@@ -1,3 +1,5 @@
+//  en planet js, gjort med threejs
+
 import * as THREE from "three";
 import { OrbitControls } from "jsm/controls/OrbitControls.js";
 import getStarfield from "./js/getStarfield.js";
@@ -17,6 +19,13 @@ if (width > 680) {
 } else {
   renderer.setSize(width*0.8, height*0.8 );
 }
+
+function clickLogo(){
+
+  window.location.href = "./index.html"
+
+}
+
 
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;

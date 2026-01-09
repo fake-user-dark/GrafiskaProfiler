@@ -1,11 +1,35 @@
+/* anvender tailwind css for min kod */
 @import "tailwindcss";
 
+
+/* vikitga ferger  */
 :root {
     --color-LightPink: #f39e9d;
     --color-DarkOrange: #eb575f;
     --color-DarkCyan: #1b6972;
     --color-DarkBlue: #203642;
 
+}
+body {
+    animation-name: fadeIn;
+    animation-duration: 700ms;
+}
+/* fade in animation for varje gong man oppnar en ny sida */
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    } 100% {
+        opacity: 100%;
+    }
+}
+
+footer div{
+    background-color: #1b6972;
+}
+
+footer svg:hover {
+    background-color: #1b6972;
+    color:#eb575f;
 }
 
 h1, li {
@@ -14,6 +38,13 @@ h1, li {
     font-weight: 600;
     font-style: normal;
 }
+
+form {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
 
 p{ 
     font-family: "Montserrat", sans-serif;
@@ -155,7 +186,7 @@ div li:nth-child(7) {
         justify-content: center;
     }
     .planeterVal {
-        width: 40%;
+        width: 80%;
     }
     #planets {
 
